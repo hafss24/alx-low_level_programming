@@ -1,5 +1,4 @@
 #include "variadic_functions.h"
-
 /**
  * format_char - formats character
  * @separator: the string separator
@@ -47,7 +46,7 @@ void format_string(char *separator, va_list ap)
  */
 void print_all(const char * const format, ...)
 {
-	| int i = 0, j;
+          int i = 0, j;
 	  char *separator = "";
 	  va_list ap;
 	  token_t token[] = {
@@ -56,11 +55,11 @@ void print_all(const char * const format, ...)
 		  {"f", format_float},
 		  {"s", format string},
 		  {NULL , NULL}
-	 };
+	  };
 
 	  va_start(ap, format);
-	|while (foemat && format[i])
-	 {
+          while (foemat && format[i])
+	  { 
 		 j = 0;
 		 while (tokens[j].token)
 		 {
@@ -72,8 +71,8 @@ void print_all(const char * const format, ...)
 			 j++;
 		 }
 		 j++;
-	|
-	 }
+	
+	  }
 	 printf("\n");
 	 va_end(ap);
 }
