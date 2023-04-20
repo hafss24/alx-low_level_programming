@@ -1,4 +1,5 @@
 #include "variadic_functions.h"
+
 /**
  * format_char - formats character
  * @separator: the string separator
@@ -24,10 +25,10 @@ void format_int(char *separator, va_list ap)
  */
 void format_float(char *separator, va_list ap)
 {
-	printf("%s%f",separator, va_arg(ap, double));
+	printf("%s%f", separator, va_arg(ap, double));
 }
 /**
- * format_string - formats string 
+ * format_string - formats string
  * @separator: the string separator
  * @n: argument pointer
  */
@@ -36,8 +37,8 @@ void format_string(char *separator, va_list ap)
 	char *str = va_arg(ap, char *);
 
 	switch ((int)(!str))
-	    case 1:
-		   str = "(nil)";
+		 case 1:
+			str = "(nil)";
 	printf("%s%s", separator, str);
 }
 /**
@@ -46,33 +47,33 @@ void format_string(char *separator, va_list ap)
  */
 void print_all(const char * const format, ...)
 {
-          int i = 0, j;
-	  char *separator = "";
-	  va_list ap;
-	  token_t token[] = {
-		  {"c", format_char},
-		  {"i", format_int},
-		  {"f", format_float},
-		  {"s", format string},
-		  {NULL , NULL}
-	  };
+	int i = 0, j;
+	char *separator = "";
+	va_list ap;
+		token_t token[] = {
+			{"c", format_char},
+			{"i", format_int},
+			{"f", format_float},
+			{"s", format string},
+			{NULL, NULL}
+	};
 
-	  va_start(ap, format);
-          while (foemat && format[i])
-	  { 
-		 j = 0;
-		 while (tokens[j].token)
-		 {
-			 if (format[i] == token[j].token[0])
-			 {
-				 token[j].f(separator, ap);
-				 separator = ",";
-			 }
-			 j++;
-		 }
-		 j++;
-	
-	  }
-	 printf("\n");
-	 va_end(ap);
+	va_start(ap, format);
+	while (foemat && format[i])
+	{
+		j = 0;
+		while (tokens[j].token)
+		{
+			if (format[i] == token[j].token[0])
+			{
+				token[j].f(separator, ap);
+				separator = ",";
+			}
+			j++;
+		}
+		j++;
+
+	}
+	printf("\n");
+	va_end(ap);
 }
